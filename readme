@@ -1,0 +1,19 @@
+
+
+说明：
+
+yaopanel-Python ： 最新代码， 对yaopanel-PHP 用 Python + Flask 实现。实际上该版的设计及编写水平比yaopanel-PHP版要好
+
+
+User ： 最近代码， 是支持跨域的单点登录用户模块，session支持memcached，mysql，redis。如果使用mysql且跨域分库需要使用优化的mysql版session驱动。
+
+
+yaopanel-PHP ： 早前代码， manyuser的ThinkPHP版
+
+
+
+另附：
+
+优化版ThinkPHP 3.2.3 
+
+优化版Flask

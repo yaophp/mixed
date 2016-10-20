@@ -1,0 +1,72 @@
+<extend name='Public:base'/>
+<block name='body'>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                邀请码列表
+                <small>Invite List</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p> 
+                        <a class="btn btn-primary  btn-flat" href="{:U('Invite/add',array('num'=>10))}">生成 10 个</a> 
+                    </p>
+                     
+                    <div class="box">
+                        <ul class="nav nav-tabs">
+                            <p id='meta' style='display: none'>{$meta}</p>
+                            <li><a href="{:U('Invite/index',array('type'=>'all'))}">全部</a></li>
+                            <li><a href="{:U('Invite/index')}">未用</a></li>
+                            <li><a href="{:U('Invite/index',array('type'=>'used'))}">所有已用</a></li>
+                            <li><a href="{:U('Invite/index',array('type'=>'used_month'))}">本月已用</a></li>
+                            <li style='float: right'><form action="{:U('Invite/index',array('type'=>'kwd'))}"><p class='search2'><select class="form-control kwd"  name='usertype'><present  name='usertype'><option value='uid'>所有者</option><option value='useid' selected>使用者</option><else /><option value='uid'>所有者</option><option value='useid'>使用者</option></present></select><input class="form-control kwd" name="kwd" value="{$kwd}" placeholder="输入用户邮箱" ><button type='submit' class="btn btn-primary  btn-flat">搜索</button></p></form></li>
+                        </ul>  
+                        
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>邀请码</th>
+                                    <th>所有者</th>
+                                    <th>创建时间</th>
+                                    <th>使用者</th>
+                                    <th>使用时间</th>
+                                </tr>
+                                <empty name='list'>
+                                    <tr>
+                                        <td align='center' colspan="6"><br>空空如也<br><br></td>
+                                    </tr>
+                                </empty>
+                                <volist name="list" id="li">
+                                    <tr>
+                                        <td>#{$li['id']}</td>
+                                        <td>{$li['code']}</td>
+                                        <td>{$li['email']}</td>
+                                        <td>{$li['time_create']|date="Y-m-d H:i",###}</td>
+                                        <td>{$li['uemail']}</td>
+                                        <td><neq name='li.time_use' value='0'>{$li['time_use']|date="Y-m-d H:i",###}</neq></td>
+                                    </tr>
+                                </volist>
+                            </table>
+                        </div><!-- /.box-body -->
+                        <div class='box-footer'>
+                            <h5>共 <strong>{$count}</strong> 个 <strong>{$meta}</strong> 邀请码</h5>
+                        </div>
+                    </div><!-- /.box -->
+                    <div class="page2">{$page}</div>
+                </div>
+            </div>
+
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</block>
+
+<block name='script'>
+    <script src='__STATIC__js/common_yao.js' type="text/javascript"></script>
+</block>

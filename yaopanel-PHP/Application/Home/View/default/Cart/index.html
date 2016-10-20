@@ -1,0 +1,53 @@
+<extend name='Public:base'/>
+
+<block name='body'>
+    <div class='content box'>
+        
+        <div class='order'>
+<!--            <h2>产品设置</h2>
+            <p>您选择的产品/服务有供您选择以下配置选项。</p>
+            <div class="cartbox">购买后可在后台设置</div>-->
+            <h2>账户信息</h2>
+            <!--<p>您选择的产品/服务有供您选择以下配置选项。</p>-->
+            <div class="cartbox">
+                <table class="data" align="center" border="0" cellpadding="10" cellspacing="0" width="100%">
+                    <tbody><tr>
+                            <th width="50%">当前账户</th>
+                            <th width="50%">受益账户</th>
+                        </tr>
+                        <tr>
+                            <td class='text-center'>{:session('user_auth.email')}</td>
+                            <td class='text-center'>{:session('user_auth.email')}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>产品/服务</h3>
+            <div class="cartbox">
+                <ul>
+                    <li><h3>{$product.name}</h3></li>
+                    <li> <switch name='product.transfer'><case value='9999'>不限</case><default/>{$product.transfer} G</switch>流量/月<br></li>
+                    <li>可自由切换线路节点</li>
+                    <li>全平台支持（电脑/苹果/安卓）</li>
+                    <li><strong>年付费用户可以生成 {$Think.config.num_build_invite}  个邀请码，邀请码可以让朋友使用免费版</strong></li>
+                    <li><strong>年付费用户可以生成 {$Think.config.num_build_coupon}  个优惠码，优惠码可以让朋友获得折扣优惠</strong></li>
+                <ul>
+            </div>
+            <h3>账单周期</h3>
+             <form action='{:U("Cart/confirm")}' >
+                 <input name='id' value='{$product.id}' type='hidden' style='display: none'>
+            <div class="cartbox">
+                <select name='plan' style='padding:5px;width:120px'>
+                    <option value='monthly'>{$product.monthly} 元/月</option>
+                    <option value='quarterly'>{$product.quarterly} 元/季</option>
+                    <option value='annually'>{$product.annually} 元/年</option>
+                </select>
+            </div>
+            <p align="center"><input class='btn btn-warning btn-lg' url='{:U("Cart/confirm")}' href='{:U("Cart/confirm")}' type='submit' value='添加到购物车'></p>
+            <!--<p align="center"><a class='btn btn-warning btn-lg' url='{:U("Cart/confirm")}' href='{:U("Cart/confirm")}' type='submit'>添加到购物车</a></p>-->
+            </form>
+        </div>
+        
+    </div>
+</block>

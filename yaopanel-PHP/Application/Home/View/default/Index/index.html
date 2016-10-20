@@ -1,0 +1,79 @@
+<extend name='Public:base'/>
+
+<block name='body'>
+    <div class="banner cf ">
+        <div class="content relative" style="height: 280px;">
+            <a class="btn btn-good" href="{:U('User/Public/register')}" style="padding: 10px 0px;font-size: 20px;text-align: center;width: 120px;position: absolute;top:160px;left: 120px">免费注册</a>
+            <a class="btn btn-danger" href="{:U('Cart/index',array('id'=>1))}" style="padding: 10px 0px;font-size: 20px;text-align: center;width: 120px;position: absolute;top:160px;left: 260px">免费试用</a>
+            <div class="notice fr">
+                <ul>
+                    <li><h3>最新公告</h3></li>
+                    <empty name="list">
+                        <li>暂无...</li>
+                    </empty>
+                    <volist name='list' id='li'>
+                        <li><a href="{:U('Post/look',array('id'=>$li['id']))}"><span>{$li['time_update']|date="Y-m-d",###}</span> {$li.title}</a></li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+
+    <div class="content">
+        <div class="guide">
+            <h2>我们致力为您解决<font class="font-warning"> 外贸、海淘、社交、视频、游戏 </font>的网络加速问题</h2>
+            <p><a>1、免费注册</a>——><a>2、选择套餐</a>——><a>3、下载使用</a></p>
+        </div>
+    </div>
+
+    <div class="content cf" style="text-align:center;">
+        <foreach name='product' item='pro'>
+            <switch name='pro.name'>
+                <case value='免费版'>
+                    <div class="plan ">
+                        <ul>
+                            <li><h3 class="font-warning">{$pro.name}</h3></li>
+                            <li><strong>{$pro.monthly} 元</strong></li>
+                            <li><strong>{$pro.transfer} G流量</strong></li>
+                            <li><strong>可自由切换线路节点</strong></li>
+                            <li><strong>全平台支持（电脑/苹果/安卓）</strong></li>
+                        </ul>
+                        <a class="btn btn-good" href="{:U('Cart/index',array('id'=>$pro['id']))}" target='_blank'>免费试用</a>
+                    </div>
+                </case>
+                <default/>
+                    <div class="plan ">
+                        <ul>
+                            <li><h3 class="font-warning">{$pro.name}</h3></li>
+                            <li><strong>{$pro.monthly} 元/月</strong></li>
+                            <li><strong><switch name='pro.transfer'><case value='9999'>不限</case><default/>{$pro.transfer} G</switch>流量/月</strong></li>
+                            <li><strong>可自由切换线路节点</strong></li>
+                            <li><strong>全平台支持（电脑/苹果/安卓）</strong></li>
+                        </ul>
+                        <switch name='pro.transfer'>
+                            <case value='9999'><a class="btn btn-danger" href="{:U('Cart/index',array('id'=>$pro['id']))}"  target='_blank'>立刻订购</a></case>
+                            <default/> <a class="btn btn-info" href="{:U('Cart/index',array('id'=>$pro['id']))}" target='_blank'>立刻订购</a>
+                        </switch>
+                    </div>
+            </switch>
+        </foreach>
+    </div>
+
+    <div class="content">
+        <div class="cooperation cf">
+            <ul class="cf">
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__win.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__apple.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__android.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__facebook.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__youtube.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__twitter.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__google.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__gmail.png" alt="" class="partner-img"></a></li>
+                <li><div style="display: block;" class="meng"></div><a href="javascript:void(0)"><img src="__IMG__github.png" alt="" class="partner-img"></a></li>
+            </ul>
+
+        </div>
+    </div>
+</block>

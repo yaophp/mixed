@@ -1,0 +1,83 @@
+<extend name="Public:base" />
+
+<block name="body">
+     <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                欢迎使用
+                <small>Welcome</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- START PROGRESS BARS -->
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="box box-solid">
+                        <div class="box-header">
+                            <h3 class="box-title">帐户信息</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <p> 类型：<strong class="label label-info" style='font-size: 90%'> {$plan}</strong> </p>
+                            <p> 账号：{$email} </p>
+                            <p> 密码：****** </p>
+                            <p> 端口：<code>{$port}</code> </p>
+                            <p> 最后使用时间：<code><eq name='t' value='0'>--<else/>{$t|date="Y-m-d H:i",###}</eq></code> </p>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div><!-- /.col (right) -->
+                
+                
+                <div class="col-md-6">
+                    <div class="box box-solid">
+                        <div class="box-header">
+                            <h3 class="box-title">流量使用情况</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <p> 套餐流量：{$transfer_enable|byte_to_unit=###,'g'}G </p>
+                            <p> 已用流量：{$u+$d|byte_to_unit=###,'m'}M </p>
+                            <div class="progress progress-striped">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{$percent}%">
+                                    <span class="sr-only">Transfer</span>
+                                </div>
+                            </div>
+                            <p> 剩余流量：{$transfer_enable - ($u+$d)|byte_to_unit=###,'g'}G </p>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div><!-- /.col (left) -->
+
+
+
+                
+            </div><!-- /.row -->
+            <!-- END PROGRESS BARS -->
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</block>
+
+<block name="script">
+    <script>
+    $(document).ready(function(){
+        $("#checkin").click(function(){
+            $.ajax({
+                type:"GET",
+                url:"_checkin.php",
+                dataType:"json",
+                success:function(data){
+                    $("#checkin-msg").html(data.msg);
+                    $("#checkin-btn").hide();
+                },
+                error:function(jqXHR){
+                    alert("发生错误："+jqXHR.status);
+                    // 在控制台输出错误信息
+                    console.log(removeHTMLTag(jqXHR.responseText));
+                }
+            })
+        })
+    })
+</script>
+</block>

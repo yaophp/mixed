@@ -1,0 +1,93 @@
+<extend name='Public:base'/>
+
+<block name="style">
+    <link href="__STATIC__js/umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+</block>
+
+<block name='body'>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                节点添加
+                <small>Add Node</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    
+                   
+                    <!--editor-->
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">添加新文章
+                                <small>Post new</small>
+                            </h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body pad">
+                            <form action="__SELF__" method="post">
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input class="form-control" name="title" value="{$list.title}" placeholder="输入标题"  autocomplete="off" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>发布目录</label>
+                                    <select name="catalog" class="form-control">
+                                        <option value="notify" <eq name="list.catalog" value="notify">selected="selected"</eq>>最新公告</option>
+                                        <option value="help" <eq name="list.catalog" value="help">selected="selected"</eq>>使用帮助</option>
+                                        <option value="other" <eq name="list.catalog" value="other">selected="selected"</eq>>其他分类</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>文章内容</label>
+                                    <!-- 加载编辑器的容器 -->
+                                    <!--style给定宽度可以影响编辑器的最终宽度-->
+                                    <div  type="text/plain" id="container" name='content' style="width: 98%; height:240px;z-index:2030" >
+                                        {$list.content|htmlspecialchars_decode=###}
+                                    </div>
+                                </div>
+                                <input value="{$list.id}" name="id" type="hidden">
+                                <button type="submit" class="btn btn-success " style="margin-right: 5px;">
+                                    <i class="fa fa-download"></i> 更 新 
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!--editor-->
+
+                </div><!-- /.col 12--> 
+            </div>   <!-- /.row -->
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</block>
+
+<block name="script">
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="__STATIC__js/umeditor/umeditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__STATIC__js/umeditor/umeditor.min.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        $(function() {          
+            var um = UM.getEditor('container', { 
+                toolbar: ['fontsize bold italic underline  insertorderedlist insertunorderedlist justifyleft justifyright justifycenter justifyjustify forecolor backcolor strikethrough removeformat emotion image video fullscreen'],   
+                UEDITOR_HOME_URL: "__STATIC__js/umeditor/",
+                imageUrl: "{:U('Post/upload')}",              
+                imagePath: "__ROOT__/Data/upload/umeditor",    
+//                wordCount: false,               
+                elementPathEnabled: false,            
+                autoFloatEnabled: false,         
+                textarea: 'content'            
+           });    
+
+        }); 
+    </script>
+</block>

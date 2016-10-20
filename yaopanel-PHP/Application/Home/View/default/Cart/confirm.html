@@ -1,0 +1,68 @@
+<extend name='Public:base'/>
+
+<block name='body'>
+    <div class='content box'>
+        <div class='order data-table cf'>
+            <h1>订单摘要</h1>
+            <div class='cartbox'>
+                <table class="data" align="center" border="0" cellpadding="10" cellspacing="0" width="100%">
+                    <tbody><tr>
+                            <th width="50%">描述</th>
+                            <th width="50%">价格</th>
+                        </tr>
+    <!--                    <tr>
+                            <td colspan="2" class="text-center"><br>
+                                您的购物车是空的。 <br>
+                                <br></td>
+                        </tr>-->
+                        <tr>
+                            <td class='text-center'>{$product.detail}</td>
+                            <td class='text-center'>￥ {$product.price} 人民币</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class='cf' style='margin: 20px;padding:20px'>
+                    <h3 align='center' ><dl><dd class='price_old'>小计：{$product.price}￥</dd></dl></h3>
+                    <h3 align='center' class='price_old'><dl><dd class='price_old'>合计：<font class='price_count'>{$product.price}</font>￥</dd></dl></h3>
+                    <h3 align='center' class='price_new'><dl><dd>折后：<font class='price_up'>17</font>￥ </dd></dl></h3>
+                </div>
+            </div>
+            <div  align='center'><span class='coupon_tips'></span></div>
+            <div align='center' style='margin: 5px 10px;padding:10px'>
+                <form class='coupon_form'>
+                    <input class='coupon_input' name='coupon' placeholder='优惠码'/><input id="coupon_check" target-form='coupon_form' url="{:U('Coupon/isAvailable')}" class='btn btn-info btn-sm' style='display: inline-block' value='确认' type='button'/>
+                </form>
+            </div>
+            <h1>受益账户</h1>
+            <div class='cartbox'>
+                {:session('user_auth.email')}
+            </div>
+            <h1>付款方式</h1>
+            <div class='cartbox'>
+                <label class='payment'><input name="paymethod" value="alipay" onclick="" checked="" type="radio"> <img src='__IMG__pay_alipay.png' alt='支付宝' width='182'></label>
+            </div>
+            
+            <div style='margin: 20px;padding:20px'>
+                <p><strong>温馨提示</strong>：支付成功后，不要立即关闭支付页面，请耐心等待约<b>5-10秒</b>，系统会自动跳转返回。</p>
+            </div>
+            
+            <div align='center' style='margin: 20px;padding:20px'>
+                <form action='{:U("Cart/checkout")}' method="post">
+                    <input name="id" value="{$product.id}" type="hidden"/>
+                    <input name="plan" value="{$plan}" type="hidden"/>
+                <input class='btn btn-gray btn-sm' style='display: inline-block' value='放弃结帐' type='button'/>
+                <input class='btn btn-warning btn-sm' style='display: inline-block' value='现在结帐' type='submit'/>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</block>
+
+
+<block name="script">
+    <script src="__STATIC__js/jQuery.min.js" type="text/javascript"></script>
+    <script src="__STATIC__js/layer/layer.js" type="text/javascript"></script>
+    <script src="__STATIC__js/common_yao.js" type="text/javascript"></script>
+</block>

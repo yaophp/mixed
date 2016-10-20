@@ -1,0 +1,28 @@
+<extend name="Public/base"/>
+
+<block name='step'>
+    <li ><em>1</em>服务协议</li>
+    <li><em>2</em>检测环境</li>
+    <li class="current"><em>3</em>升级系统</li>
+    <li><em>4</em>开始安装</li>
+    <li><em>5</em>完成安装</li>
+</block>
+
+
+<block name="body">
+    <div class="main cc">
+        <div style="margin: 0px auto; padding: 100px 0px 140px; text-align: center; font-size: 18px;">
+            <p>升级前请阅读对应版本的升级说明</p>
+            <p>请务必做好相关资料的备份</p>
+            <p>点击立刻升级按钮进行系统升级!</p>
+        </div>
+        
+    </div>
+</block>
+
+<block name='next'>
+    <div class="bottom tac">
+        <a href="{:U('Index/step1',array('agree'=>1))}" class="btn">上一步</a>
+        <button type="submit" class="btn btn_submit J_install_btn">立刻升级</button>
+      </div>
+</block>

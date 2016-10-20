@@ -1,0 +1,44 @@
+<extend name="Public/base"/>
+
+<block name='step'>
+    <li><em>1</em>服务协议</li>
+    <li><em>2</em>检测环境</li>
+    <li><em>3</em>创建数据</li>
+    <li class="current"><em>4</em>开始安装</li>
+    <li><em>5</em>完成安装</li>
+</block>
+
+<block name="body">
+    <div class="main cc">
+        <div class="pact">
+            <div id="show-list" class="install-database"> </div>
+        </div>
+    </div>
+</block>
+
+<block name='next'>
+    <div id="install_tips" class="bottom tac">
+        安装进行中...
+    </div>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        var list   = document.getElementById('show-list');
+        var bottom = document.getElementById('install_tips');
+        function showmsg(msg, classname){
+            var li = document.createElement('p'); 
+            if(classname){
+               
+                li.innerHTML = '<i class="ico-'+classname+'"></i> '+ msg ;
+            }else{
+                li.innerHTML = msg;
+            }
+            list.appendChild(li);
+            if(classname == 'error'){
+                alert('安装过程中有环节存在风险，已停止安装');
+                bottom.innerHTML = '安装已中断！！！';
+            }
+        }
+    </script>
+</block>

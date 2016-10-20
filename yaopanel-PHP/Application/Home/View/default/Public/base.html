@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
++----------------------------------------------------------------------
+| [ FOR SAVING TIME ].
++----------------------------------------------------------------------
+| Author: yao - <yao365@163.com> 2016
++----------------------------------------------------------------------
+-->
+<html>
+    <head>
+        <title>欢迎使用</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="keywords" content="Yaopanel"> 
+        <meta name="description" content="Yaopanel,free,open source"> 
+        <link href="__CSS__style.css" rel="stylesheet" type='text/css'>
+        <block name='css'></block>
+    </head>
+    <body>
+        <div class="header">
+            <div class="head cf">
+                <div class="logo fl"><a href="{:U('Index/index')}">{$Think.config.SYS_NAME}</a></div>
+                <div class="nav fl">
+                    <ul>
+                        <li><a href="{:U('Index/index')}">网站首页</a></li>
+                    </ul>
+                </div>
+                <div class="user_bar fr"><ul><li><a href="{:U('User/Index/index')}">会员中心</a></li></ul></div>
+            </div>
+        </div>
+        <div class="contenter cf">
+            <block name='body'></block>
+        </div>
+        <div class="footer about">
+            <div class='foot cf'>
+                <div class='fl'>
+                    <ul>
+                        <li><h3>常用工具</h3></li>
+                        <li><a>ping测速</a></li>
+                        <li><a>ip检测</a></li>
+                    </ul>
+                </div>
+                <div class='fl'>
+                    <ul>
+                        <li><h3>友情链接</h3></li>
+                        <li><a>Google</a></li>
+                        <li><a>Facebook</a></li>
+                        <li><a>Twitter</a></li>
+                        <li><a>Youtube</a></li>
+                    </ul>
+                </div>
+                <div class='fl'>
+                    <ul>
+                        <li><h3>关于</h3></li>
+                        <li><a>关于我们</a></li>
+                        <li><a>诚聘英才</a></li>
+                        <li><a>服务条款</a></li>
+                        <li><a>举报违规</a></li>
+                    </ul>
+                </div>
+                <div class='fl'>
+                    <ul>
+                        <li><h3>联系方式</h3></li>
+                        <li>固话：{$Think.config.BASE_INFO_TELPHONE}</li>
+                        <li>邮箱：{$Think.config.BASE_INFO_EMAIL}</li>
+                        <li>手机：{$Think.config.BASE_INFO_MOBILE}</li>
+                        <li>地址：{$Think.config.BASE_INFO_ADDRESS}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class='footer copyright'>
+            <div class='foot '> © 2014-<?php echo date("Y") ?> 保留所有权利。 本站由 {$Think.config.SYS_NAME} V{$Think.config.SYS_VERSION} 强力驱动</div>
+        </div>
+    <block name='script'></block>
+    </body>
+</html>

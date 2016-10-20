@@ -1,0 +1,83 @@
+<extend name='Public:base'/>
+<block name='body'>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <h1>
+                用户管理
+                <small>User Manage</small>
+            </h1>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">编辑用户</h3>
+                        </div><!-- /.box-header -->
+                        <form method='post' action='__SELF__'>
+                        <div class="box-body">
+
+                            <div class="form-group">
+                                <label for="cate_title">ID: {$user.id}</label>
+                                <input type="hidden" class="form-control" id="uid" name='id' value="{$user.id}"  >
+                            </div>
+
+<!--                            <div class="form-group">
+                                <label for="cate_title">用户名</label>
+                                <input  class="form-control" id="name" value="" >
+                            </div>-->
+
+                            <div class="form-group">
+                                <label for="cate_title">用户邮箱</label>
+                                <input  class="form-control" id="email" name='email' value="{$user.email}"  disabled="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cate_title">用户密码 （ 不建议擅自修改，会影响用户登录 ）</label>
+                                <input  class="form-control" id="passwd" name='passwd' value="{$user.passwd}" >
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">端口 （ 若无冲突情况，一般不建议修改 ）</label>
+                                <input  class="form-control" id="passwd" name='port' value="{$user.port}" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cate_title">设置总流量（ 单位为GB，9999则为无限制流量 ）</label>
+                                <input   class="form-control" id="transfer_enable" name='transfer_enable' value="{$user['transfer_enable']|byte_to_unit=###}" placeholder="单位为GB，直接输入数值" >
+                            </div>
+
+<!--                            <div class="form-group">
+                                <label for="cate_title">邀请码数量</label>
+
+                                <input  class="form-control" id="invite_num"  value=""  >
+                            </div>-->
+
+                        </div><!-- /.box-body -->
+                        
+                        <div class="box-footer">
+                            <button type="submit" id="submit"  class="btn btn-primary">修改</button>
+                        </div>
+                        </form>
+                        <div id="msg-success" class="alert alert-info alert-dismissable" style="display: none;">
+                            <button type="button" class="close" id="ok-close" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-info"></i> 成功!</h4>
+                            <p id="msg-success-p"></p>
+                        </div>
+                        <div id="msg-error" class="alert alert-warning alert-dismissable" style="display: none;">
+                            <button type="button" class="close" id="error-close" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-warning"></i> 出错了!</h4>
+                            <p id="msg-error-p"></p>
+                        </div>
+                    </div>
+                </div><!-- /.box -->
+            </div>   <!-- /.row -->
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</block>
+

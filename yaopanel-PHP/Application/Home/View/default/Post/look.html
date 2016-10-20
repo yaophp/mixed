@@ -1,0 +1,15 @@
+<extend name="Public:base"/>
+
+<block name="body">
+    <div class='content box'>
+        
+        <div class='order'>
+            <h2 class='font-warning'>{$list.title}<small><font style="color: gray;font-size: 12px">{$list.time_update|date="Y-m-d",###}</font></small></h2>
+            <div class='content'>
+                {$list['content']|htmlspecialchars_decode=###}
+            </div>
+            
+        </div>
+        
+    </div>
+</block>

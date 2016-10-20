@@ -1,0 +1,165 @@
+<extend name="Public:base" />
+
+<block name="body">
+     <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                欢迎使用
+                <small>Welcome</small>
+            </h1>
+        </section>
+        
+        
+        <!-- Main content -->
+        <section class="content">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <a href="{:U('Node/index')}">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+                                {$node}
+                            </h3>
+                            <p>
+                                节点
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <!--<i class="ion ion-cloud"></i>-->
+                            <i class="fa fa-sitemap"></i>
+                        </div>
+                    </div>
+                </div><!-- ./col -->
+                </a>
+                
+                <a href="{:U('User/index',array('type'=>'m'))}">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-blue">
+                        <div class="inner">
+                            <h3>
+                                +{$user}
+                            </h3>
+                            <p>
+                                注册用户 / 本月
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <!--<i class="ion ion-person-add"></i>-->
+                            <i class="fa fa-user"></i>
+                        </div>
+<!--                        <a href="user.php" class="small-box-footer">
+                            管理 <i class="fa fa-arrow-circle-right"></i>
+                        </a>-->
+                    </div>
+                </div><!-- ./col -->
+                </a>
+                
+                <a href="{:U('Order/index')}">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>+{$order}</h3>
+
+                            <p>新订单 / 本月</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <a href="{:U('Invite/index',array('type'=>'used_month'))}">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-maroon">
+                        <div class="inner">
+                            <h3>-{$invite}</h3>
+                            <p>已用邀请码 / 本月</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-tag"></i>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                    
+            </div><!-- /.row -->
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 100px;">当前版本</th>
+                                    <th>V2.0</th>
+                                </tr>
+                                <tr>
+                                    <td>+</td>
+                                    <td>
+                                        <div>
+                                            <p>新增安装模块，方便普通用户安装使用</p>
+                                            <p>新增订单功能</p>
+                                            <p>做了优化，速度提升40%</p>
+                                            <p>更换了更简约的前端</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>-</td>
+                                    <td>
+                                        <div>
+                                            <p>修复上一个版本的已知BUG</p>
+                                        </div>
+                                    </td>
+                                </tr>
+<!--                                <tr>
+                                    <td>±</td>
+                                    <td>下一版本考虑增加 运营助手 模块</td>
+                                </tr>-->
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.col-md-6-->   
+                <div class="col-md-6">
+                    <div class="box">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 100px;">产品名称</th>
+                                    <th>Yaopanel</th>
+                                </tr>
+                                <tr>
+                                    <td>总策划</td>
+                                    <td>yao0159@gmail.com</td>
+                                </tr>
+                                <tr>
+                                    <td>产品官网</td>
+                                    <td>YaoPHP.com</td>
+                                </tr>
+                                <tr>
+                                    <td>特别鸣谢</td>
+                                    <td>ThinkPHP、Onethink、AdminLTE、ss-panel</td>
+                                </tr>
+                                <tr>
+                                    <td>免责声明</td>
+                                    <td>本产品遵循Apache2开源协议发布，并提供免费使用。本产品开发团队对于任何个人、团体或企业组织因使用本产品所引起的责任概不负责。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.col-md-6-->  
+            </div> 
+            
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</block>
+

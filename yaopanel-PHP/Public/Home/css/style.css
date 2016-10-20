@@ -1,0 +1,306 @@
+/*
++----------------------------------------------------------------------
+| [ FOR SAVING TIME ].
++----------------------------------------------------------------------
+| Author: yao - <yao365@163.com> 2016
++----------------------------------------------------------------------
+*/
+
+
+/*描述：全站基本样式
+作用范围：全局*/
+@charset 'utf-8';
+body{
+    font:14px/1.5 "microsoft yahei", Helvetica, Tahoma, Arial,"Verdana",sans-serif;
+    color: #666;
+    background: #F5F5F5
+}
+body,div,p,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,
+form,input,textarea,button,
+pre,fieldset,legend,blockquote,marquee{
+    margin: 0px;
+    padding:0px;
+}
+/*居中*/
+div,table,img,dl,ul{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul,li{
+    background-repeat: no-repeat;
+    list-style-type: none;
+    list-style: none;
+}
+img{
+    border: none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size: 18px;
+    font-weight: normal;
+}
+a{
+    cursor:pointer;
+    text-decoration: none;
+    outline: 0 none;
+    color: #444;
+}
+
+/*div{
+    background-color: #FFFFFF;
+}*/
+
+
+/*//显示常用*/
+.hidden{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+}
+.none{
+    display: none;
+}
+.block{
+    display: block!important;
+}
+.fixed{
+    position: fixed!important;
+}
+
+/*//布局常用*/
+.fl{
+	float: left!important;
+}
+.fr{
+	float: right!important;
+}
+.clear{
+    *zoom: 1;
+    clear: both;
+}
+.clear:before, .clear:after{
+    display: table;
+    content: "";
+}
+
+.cf,.nav,.container-span {
+	*zoom: 1;
+}
+.cf:before, .cf:after,
+.nav:before, .nav:after,
+.container-span:before,
+.container-span:after {
+	display: table;
+	content: "";
+}
+.cf:after,.nav:after,
+.container-span:after {
+	clear: both;
+}
+.fl{
+	float: left!important;
+}
+.fr{
+	float: right!important;
+}
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+}
+.hidden {
+	display: none;
+}
+.block {
+	display: block!important;
+}
+.fixed{
+    position: fixed!important;
+}
+.container-span [class^="span"] {
+	margin: 0 1% 20px;
+}
+.container-span .span1,
+.container-span .span2,
+.container-span .span3,
+.container-span .span4 {
+    float: left;
+}
+.container-span .span1 {
+    width: 23%;
+}
+.container-span .span2 {
+    width: 48%;
+}
+.container-span .span4 {
+    width: 98%;
+}
+
+.width3{
+    width: 320px;
+}
+.width2{
+    width:260px;
+}
+/*排版样式*/
+.text-center{
+	text-align: center!important;
+}
+.text-right{
+	text-align: right!important;
+}
+.text-left{
+	text-align: left!important;
+}
+
+/*小部件*/
+input{
+    /*height: 40px;*/
+}
+
+
+/*基础提示tips*/
+.warning,.warning p{
+    color: #E96C6C!important;
+}
+.good{
+    color: #2ab33d!important;
+}
+.font-warning{color: #eea236;}
+
+.relative{position: relative!important;}
+
+.box{background-color: #FFF;}
+
+.btn-lg{width: 120px}
+.btn-sm{width:80px;}
+
+/* = 表格（默认有斑马条纹）
+------------------------------------------ */
+/*.data-table {
+	margin: 10px 0;
+}
+.data-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.data-table caption {
+    height: 30px;
+    line-height: 30px;
+    font-weight: 700;
+}
+.data-table thead th,
+.data-table tbody td {
+    padding:8px;
+    height: 19px;
+    line-height: 19px;
+    font-weight: 400;
+}
+.data-table thead th {
+    text-align: left;
+    color:#fff;
+    background-color: #353535;
+}
+.data-table tbody tr {
+	background-color: #fefefe;
+	color: #686868;
+}
+.data-table tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}*/
+
+/*主页*/
+/*基本布局*/
+body{overflow-y: scroll}
+html,body{height: 100%;margin: 0px;padding:0px;overflow-x: hidden;background-color: #D2D6DE;}
+.header,.footer,.contenter{width: 100%;}
+.contenter{min-height: 100%;height: auto; }
+.header{background-color: #3C8DBC}
+.head,.foot,.content{width:960px}
+/*顶部导航*/
+.head{height: 50px;line-height: 50px;}
+.head div{display: block;}
+.logo{width: 120px;height: 50px;}
+.head ul,.head li,.head a{display: block}
+.head li{float: left;width: 90px;text-align: center;}
+.head a{color:#FFF}
+.user_bar a:hover,.nav a:hover{background-color: #367FA9;}
+.logo{
+    display: block;
+    float: left;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 0 15px;
+    font-weight: 300;
+}
+
+/*内容*/
+.content{margin:20px auto;overflow: hidden;}
+.banner{height: 280px;background: url('../img/banner.jpg') no-repeat center 0}
+.notice{background-color: #FFF;display: block;width: 45%;height: 70%;margin: 16px 0;padding:10px 24px;overflow: hidden}
+.notice li{line-height: 28px;white-space: nowrap ; text-overflow:ellipsis;overflow: hidden}
+.notice h3{margin: 10px;}
+.notice a:hover{text-decoration: underline}
+/*.img{vertical-align: middle}*/
+.guide{padding:20px 0;background-color: #FFF;text-align: center}
+.guide h2{margin-bottom:12px }
+.plan{width:30%;margin:4px;padding:10px 10px 20px;background-color: #FFF;display: inline-block;text-align: left}
+.plan ul{margin:10px}
+.plan li{line-height: 36px;}
+.plan h3{text-align: center;font-weight: bold;font-size: 28px;}
+.plan .btn{width:100%;padding: 10px 0px;font-size: 20px;text-align: center}
+.btn{padding:10px 5px;text-align: center;display: block;border: 0 none;cursor: pointer;outline: 0px none !important;}
+.btn-good{background-color: #4cae4c;color: #FFF}
+.btn-good:hover{background-color: #4ca11c;}
+.btn-danger{background-color: #D9534F;;color: #FFF}
+.btn-danger:hover{background-color: #C9302C;}
+/*.btn-danger{background-color: #d43f3a;color: #FFF}
+.btn-danger:hover{background-color: #c43f3a;}*/
+.btn-info{background-color: #3C8DBC;color: #FFF}
+.btn-info:hover{background-color: #367FA9;}
+.btn-gray{background-color: #D4D4D4;color: #444}
+.btn-gray:hover{background-color: #ADADAD;}
+.btn-warning{background-color: #F0AD4E;color: #FFF}
+.btn-warning:hover{background-color: #ec971f;}
+
+.cooperation{margin: 10px auto;padding:10px 0px;text-align: center;}
+.cooperation ul,.cooperation li{float: left;position: relative;}
+.cooperation img{width:80px;height: 80px;margin-left: 25px }
+.meng{position: absolute;bottom: 0px;left: 0px;right: 0px;top: 0px;background: rgba(210, 214, 222, 0.4) none repeat scroll 0% 0%;}
+/*.meng{position: absolute;bottom: 0px;left: 0px;right: 0px;top: 0px;background: rgba(255, 255, 255, 0.4) none repeat scroll 0% 0%;}*/
+/*.cooperation img{width:240px;height: 117px; }*/
+/*底部*/
+/*.footer{}*/
+/*.foot a{color: #9D9D9D;}*/
+/*.foot a:hover{color: #FFF;}*/
+.foot h3{color:#FBFBFB}
+.about{background-color: #2C3B41;padding:16px 0px}
+.about a,.about li{color:#8AA4AF}
+.about a:hover{color:#FFF}
+.about ul{padding:10px 15px;width:200px;overflow: hidden}
+.about li{line-height: 28px;}
+.copyright{height: 40px;line-height: 40px;text-align: center;background-color: #222d32;color:#B8C7CE;font-size: 13px;}
+
+
+/* 订单页 */
+.order{padding:20px; margin: 20px auto;min-height: 380px}
+.order li{line-height: 28px}
+.order dl{width:30%; line-height: 30px}
+.order dt,dd{display: inline-block;}
+.cartbox{margin: 6px 0px 18px;
+padding: 10px 16px;
+background-color: #F5F5F5;
+border: 3px solid #EBEBEB;
+line-height: 20px;
+border-radius: 6px;}
+.coupon_input{height: 36px;line-height: 36px;padding:1px 5px}
+
+.payment input,.payment img{vertical-align:middle}
+
+.coupon_tips{visibility: hidden}
+/*.price_old{text-decoration: line-through}*/
+.price_new{color: #2ab33d; display: none}

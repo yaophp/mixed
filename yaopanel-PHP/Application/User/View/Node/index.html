@@ -1,0 +1,54 @@
+<extend name='Public:base'/>
+<block name='body'>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                节点列表
+                <small>Node List</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>名称</th>
+                                    <th>地址</th>
+                                    <th>加密</th>
+                                    <th>描述</th>
+                                </tr>
+                                <empty name='list'>
+                                    <tr>
+                                        <td align='center' colspan="5"><br>暂时没有节点<br><br></td>
+                                    </tr>
+                                </empty>
+                                <volist name="list" id="li">
+                                    <tr>
+                                        <td>#{$li['id']}</td>
+                                        <td>{$li['name']}</td>
+                                        <td>{$li['server']}</td>
+                                        <td>{$li['method']}</td>
+                                        <td>{$li['info']}</td>
+                                    </tr>
+                                </volist>
+                                
+                            </table>
+                        </div><!-- /.box-body -->
+                        <div class='box-footer'>
+                            <h5>共 <strong>{$count}</strong> 个节点</h5>
+                        </div>
+                    </div><!-- /.box -->
+                    <div class="page2">{$page}</div>
+                </div>
+            </div>
+
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+</block>
